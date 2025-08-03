@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Numerics;
 
 namespace Losev.Domain.Entities;
 
@@ -12,6 +13,8 @@ public sealed class AppUser : IdentityUser<Guid>
     public string IpAddress { get; set; } = default!;
     public bool StatusSuccess { get; set; } =false;
     public DateTime DateTime { get; set; } = DateTime.Now;
+    public bool IsDeleted { get; set; } = false;
     public ICollection<Group> Groups { get; set; } = new List<Group>();
-      
+    public string PasswordSalt { get; set; } = default!;    
+
 }
