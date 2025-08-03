@@ -8,9 +8,9 @@ namespace Losev.Infrastructure.Context
 {
     internal sealed class ApplicationDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>, IUnitOfWork
     {
-        public ApplicationDbContext(DbContextOptions options) : base(options)
-        {
-        }
+        public ApplicationDbContext(DbContextOptions options) : base(options) { }
+       
+        public DbSet<Group> Groups { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
