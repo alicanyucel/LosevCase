@@ -20,4 +20,9 @@
     <ProjectReference Include="..\Losev.Domain\Losev.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Group\" />
+    <Folder Include="Features\User\" />
+  </ItemGroup>
+
 </Project>

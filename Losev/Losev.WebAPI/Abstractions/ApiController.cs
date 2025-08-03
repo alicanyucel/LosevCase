@@ -2,18 +2,17 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Losev.WebAPI.Abstractions
-{
-    [Route("api/[controller]/[action]")]
-    [ApiController]
-    [Authorize(AuthenticationSchemes = "Bearer")]
-    public abstract class ApiController : ControllerBase
-    {
-        public readonly IMediator _mediator;
+namespace Losev.WebAPI.Abstractions;
 
-        protected ApiController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
+[Route("api/[controller]/[action]")]
+[ApiController]
+[Authorize(AuthenticationSchemes = "Bearer")]
+public abstract class ApiController : ControllerBase
+{
+    public readonly IMediator _mediator;
+
+    protected ApiController(IMediator mediator)
+    {
+        _mediator = mediator;
     }
 }
