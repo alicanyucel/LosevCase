@@ -22,11 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Group\CreateUser\" />
-    <Folder Include="Features\User\CreateUser\" />
-    <Folder Include="Features\User\DeleteUsee\" />
-    <Folder Include="Features\User\GetByIdUser\" />
-    <Folder Include="Features\User\GetAllUser\" />
-    <Folder Include="Features\User\UpdateUser\" />
   </ItemGroup>
 
 </Project>
