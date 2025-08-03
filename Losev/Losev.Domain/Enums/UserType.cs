@@ -1,6 +1,6 @@
 ﻿namespace Losev.Domain.Enums;
 
-public enum UserType
+public enum GroupType
 {
     Web = 1,
     Mobile = 2,
