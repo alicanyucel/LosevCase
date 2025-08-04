@@ -3,41 +3,41 @@
 Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain, Infrastructure, WebAPI ve Test projelerinden oluþur. Proje; Entity Framework Core, MediatR, FluentValidation, AutoMapper ve JWT kimlik doðrulama kullanýr.
 
 ## Özellikler
-- C# 13 dil özellikleri
-- .NET Core 9.0 Web API
-- Katmanlý ve modüler mimari
-- SOLID prensipleri ve OOP
-- Clean Architecture ve Clean Code
-- AOP (Aspect Oriented Programming)
-- MediatR ile CQRS ve handler yapýsý
-- Generic Repository pattern
-- **Unit of Work pattern**
-- Scrutor ile otomatik servis kaydý
-- Result Pattern ile standart sonuç yönetimi
-- Roller ve rol tabanlý yetkilendirme
-- **Authentication ve Authorization mekanizmalarý**
-- **Identity API ile kimlik yönetimi**
-- **Ardalis.SmartEnum ile geliþmiþ enum yönetimi**
-- **Serilog ile geliþmiþ loglama**
-- **FluentValidation ile güçlü doðrulama**
-- **ExtensionsMiddleware ile baþlangýçta otomatik admin kullanýcý oluþturma**
-- **Extensions metodlarý ile kodun geniþletilebilirliði**
-- **JSON Converter ile veri dönüþümü**
-- **Password Hashing ile güvenli þifre saklama**
-- **AutoMapper ile nesne eþleme**
-- **DTO (Data Transfer Object) kullanýmý**
-- **SQL Backup dosyasý ile veri yedekleme**
-- **Code First yaklaþýmý ile veritabaný yönetimi**
-- **Ayrýntýlý README markdown dosyasý ile proje dokümantasyonu**
-- JWT ile kimlik doðrulama
-- Swagger UI ile API dokümantasyonu
-- Entity Framework Core ve SQL Server
-- CORS desteði
-- Docker ile container olarak çalýþtýrma
-- Health Check ile veritabaný ve servis saðlýðý izleme
-- Rate Limiting ile API istek sýnýrlandýrma
-- MemoryCache ile bellek içi hýzlý veri saklama
-- **XUnit ve Moq ile birim testler**
+1. C# 13 dil özellikleri
+2. .NET Core 9.0 Web API
+3. Katmanlý ve modüler mimari
+4. SOLID prensipleri ve OOP
+5. Clean Architecture ve Clean Code
+6. AOP (Aspect Oriented Programming)
+7. MediatR ile CQRS ve handler yapýsý
+8. Generic Repository pattern
+9. **Unit of Work pattern**
+10. Scrutor ile otomatik servis kaydý
+11. Result Pattern ile standart sonuç yönetimi
+12. Roller ve rol tabanlý yetkilendirme
+13. **Authentication ve Authorization mekanizmalarý**
+14. **Identity API ile kimlik yönetimi**
+15. **Ardalis.SmartEnum ile geliþmiþ enum yönetimi**
+16. **Serilog ile geliþmiþ loglama**
+17. **FluentValidation ile güçlü doðrulama**
+18. **ExtensionsMiddleware ile baþlangýçta otomatik admin kullanýcý oluþturma**
+19. **Extensions metodlarý ile kodun geniþletilebilirliði**
+20. **JSON Converter ile veri dönüþümü**
+21. **Password Hashing ile güvenli þifre saklama**
+22. **AutoMapper ile nesne eþleme**
+23. **DTO (Data Transfer Object) kullanýmý**
+24. **SQL Backup dosyasý ile veri yedekleme**
+25. **Code First yaklaþýmý ile veritabaný yönetimi**
+26. **Ayrýntýlý README markdown dosyasý ile proje dokümantasyonu**
+27. JWT ile kimlik doðrulama
+28. Swagger UI ile API dokümantasyonu
+29. Entity Framework Core ve SQL Server
+30. CORS desteði
+31. Docker ile container olarak çalýþtýrma
+32. Health Check ile veritabaný ve servis saðlýðý izleme
+33. Rate Limiting ile API istek sýnýrlandýrma
+34. MemoryCache ile bellek içi hýzlý veri saklama
+35. **XUnit ve Moq ile birim testler**
 
 ## Kurulum
 
