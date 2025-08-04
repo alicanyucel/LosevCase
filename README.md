@@ -9,6 +9,7 @@ Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain
 - AOP (Aspect Oriented Programming)
 - MediatR ile CQRS ve handler yapýsý
 - Generic Repository pattern
+- **Unit of Work pattern**
 - Scrutor ile otomatik servis kaydý
 - Result Pattern ile standart sonuç yönetimi
 - Roller ve rol tabanlý yetkilendirme
