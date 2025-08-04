@@ -49,8 +49,6 @@ public class PasswordHasher<TUser> : IPasswordHasher<TUser> where TUser : class
             return PasswordVerificationResult.Failed;
         }
 
-        return decryptedPassword == providedPassword
-            ? PasswordVerificationResult.Success
-            : PasswordVerificationResult.Failed;
+        return decryptedPassword == providedPassword ? PasswordVerificationResult.Success: PasswordVerificationResult.Failed;
     }
 }
