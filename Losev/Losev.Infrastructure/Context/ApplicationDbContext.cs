@@ -4,10 +4,17 @@ using Losev.Domain.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-//deenme
 namespace Losev.Infrastructure.Context;
 
-public sealed class ApplicationDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>, IUnitOfWork
+public sealed class ApplicationDbContext : IdentityDbContext<AppUser,
+    AppRole,
+    Guid,
+    IdentityUserClaim<Guid>,
+    AppUserRole,
+    IdentityUserLogin<Guid>,
+    IdentityRoleClaim<Guid>,
+    IdentityUserToken<Guid>>,
+    IUnitOfWork
 {
     public ApplicationDbContext(DbContextOptions options) : base(options) { }
 
@@ -27,5 +34,6 @@ public sealed class ApplicationDbContext : IdentityDbContext<AppUser, IdentityRo
         builder.Ignore<IdentityUserToken<Guid>>();
         builder.Ignore<IdentityUserRole<Guid>>();
         builder.Ignore<IdentityUserClaim<Guid>>();
+        builder.Entity<AppUserRole>().HasKey(ur => new { ur.UserId, ur.RoleId });
     }
 }

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GenericRepository;
+using Losev.Domain.Entities;
+using Losev.Domain.Repositories;
+using Losev.Infrastructure.Context;
 
-namespace Losev.Infrastructure.Repositories
+namespace Losev.Infrastructure.Repositories;
+
+internal sealed class GroupRepository : Repository<Group, ApplicationDbContext>, IGroupRepository
 {
-    internal class GroupRepository
+    public GroupRepository(ApplicationDbContext context) : base(context)
     {
+
     }
+
 }
