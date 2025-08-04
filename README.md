@@ -1,6 +1,6 @@
 # Losev Projesi
 
-Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain, Infrastructure ve WebAPI projelerinden oluþur. Proje; Entity Framework Core, MediatR, FluentValidation, AutoMapper ve JWT kimlik doðrulama kullanýr.
+Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain, Infrastructure, WebAPI ve Test projelerinden oluþur. Proje; Entity Framework Core, MediatR, FluentValidation, AutoMapper ve JWT kimlik doðrulama kullanýr.
 
 ## Özellikler
 - Katmanlý ve modüler mimari
@@ -35,7 +35,12 @@ Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain
 - **Losev.Domain**: Varlýklar, enumlar
 - **Losev.Infrastructure**: Veri eriþimi, EF Core, repository'ler
 - **Losev.WebAPI**: API controller'larý, middleware, baþlangýç
+- **Losev.Test**: Test katmaný, birim testler (xUnit, Moq)
 
+## Test Katmaný
+`Losev.Test` projesi, uygulamanýn birim testlerini içerir. Özellikle Login iþlemleri için LoginCommandHandlerTests gibi testler eklenmiþtir. Testler Moq ve xUnit ile yazýlmýþtýr.
+
+Testleri çalýþtýrmak için:dotnet test
 ## Teknolojiler
 - .NET 9
 - Entity Framework Core
@@ -45,6 +50,7 @@ Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain
 - Swashbuckle (Swagger)
 - JWT Authentication
 - Docker
+- xUnit, Moq (Test)
 
 ## Katký
 Pull request gönderebilirsiniz. Büyük deðiþiklikler için önce bir issue açarak tartýþma baþlatmanýz önerilir.
