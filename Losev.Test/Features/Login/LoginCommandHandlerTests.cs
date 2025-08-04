@@ -3,6 +3,10 @@ using Losev.Application.Services;
 using Losev.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Moq;
+using Xunit;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public class LoginCommandHandlerTests
 {
@@ -33,15 +37,19 @@ public class LoginCommandHandlerTests
         );
     }
 
+    private static IQueryable<AppUser> CreateQueryableUsers(IEnumerable<AppUser> users)
+    {
+        return users.AsQueryable();
+    }
+
     [Fact]
     public async Task Handle_UserNotFound_ReturnsError()
     {
         var request = new LoginCommand("nonexistent", "password");
-        _userManagerMock.Setup(um => um.Users)
-            .Returns(new List<AppUser>().AsQueryable());
+        _userManagerMock.Setup(x => x.Users).Returns(CreateQueryableUsers(new List<AppUser>()));
         var result = await _handler.Handle(request, default);
-        Assert.False(result.IsSuccess);
-        Assert.Equal("Kullanıcı bulunamadı", result.ErrorMessage);
+        Assert.False(result.IsSuccessful);
+        Assert.Equal(new List<string> { "Kullanıcı bulunamadı" }, result.ErrorMessages);
     }
 
     [Fact]
@@ -49,13 +57,12 @@ public class LoginCommandHandlerTests
     {
         var user = new AppUser { UserName = "test", Email = "test@example.com" };
         var request = new LoginCommand("test", "wrongpassword");
-        _userManagerMock.Setup(um => um.Users)
-            .Returns(new List<AppUser> { user }.AsQueryable());
+        _userManagerMock.Setup(x => x.Users).Returns(CreateQueryableUsers(new List<AppUser> { user }));
         _signInManagerMock.Setup(sm => sm.CheckPasswordSignInAsync(user, request.Password, true))
             .ReturnsAsync(SignInResult.Failed);
         var result = await _handler.Handle(request, default);
-        Assert.False(result.IsSuccess);
-        Assert.Equal("Şifreniz yanlış", result.ErrorMessage);
+        Assert.False(result.IsSuccessful);
+        Assert.Contains("Şifreniz yanlış", result.ErrorMessages);
     }
 
     [Fact]
@@ -63,13 +70,13 @@ public class LoginCommandHandlerTests
     {
         var user = new AppUser { UserName = "test", Email = "test@example.com" };
         var request = new LoginCommand("test", "any");
-        _userManagerMock.Setup(um => um.Users)
-            .Returns(new List<AppUser> { user }.AsQueryable());
+        _userManagerMock.Setup(x => x.Users).Returns(CreateQueryableUsers(new List<AppUser> { user }));
         _signInManagerMock.Setup(sm => sm.CheckPasswordSignInAsync(user, request.Password, true))
             .ReturnsAsync(SignInResult.NotAllowed);
         var result = await _handler.Handle(request, default);
-        Assert.False(result.IsSuccess);
-        Assert.Equal("Mail adresiniz onaylı değil", result.ErrorMessage);
+        Assert.False(result.IsSuccessful);
+        Assert.NotNull(result.ErrorMessages);
+        Assert.Contains("Mail adresiniz onaylı değil", result.ErrorMessages);
     }
 
     [Fact]
@@ -77,14 +84,13 @@ public class LoginCommandHandlerTests
     {
         var user = new AppUser { UserName = "test", Email = "test@example.com" };
         var request = new LoginCommand("test", "correctpassword");
-        _userManagerMock.Setup(um => um.Users)
-            .Returns(new List<AppUser> { user }.AsQueryable());
+        _userManagerMock.Setup(x => x.Users).Returns(CreateQueryableUsers(new List<AppUser> { user }));
         _signInManagerMock.Setup(sm => sm.CheckPasswordSignInAsync(user, request.Password, true))
             .ReturnsAsync(SignInResult.Success);
         _jwtProviderMock.Setup(j => j.CreateToken(user))
             .ReturnsAsync(new LoginCommandResponse("fake.jwt.token", "fake.refresh.token", DateTime.UtcNow.AddDays(7)));
         var result = await _handler.Handle(request, default);
-        Assert.True(result.IsSuccess);
+        Assert.True(result.IsSuccessful);
         Assert.NotNull(result.Data);
         Assert.Equal("fake.jwt.token", result.Data.Token);
     }
