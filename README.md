@@ -13,10 +13,13 @@ Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain
 - Scrutor ile otomatik servis kaydý
 - Result Pattern ile standart sonuç yönetimi
 - Roller ve rol tabanlý yetkilendirme
+- **Ardalis.SmartEnum ile geliþmiþ enum yönetimi**
+- **Serilog ile geliþmiþ loglama**
+- **FluentValidation ile güçlü doðrulama**
+- **ExtensionsMiddleware ile baþlangýçta otomatik admin kullanýcý oluþturma**
 - JWT ile kimlik doðrulama
 - Swagger UI ile API dokümantasyonu
 - Entity Framework Core ve SQL Server
-- Baþlangýçta otomatik admin kullanýcý oluþturma
 - CORS desteði
 - Docker ile container olarak çalýþtýrma
 - Health Check ile veritabaný ve servis saðlýðý izleme
