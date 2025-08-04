@@ -1,6 +1,6 @@
 ﻿namespace Losev.Application.Dtos.User;
 
-public class UserFilterDto
+public sealed class UserFilterDto
 {
     public string SearchUser { get; set; } = default!;
 }

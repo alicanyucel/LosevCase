@@ -26,8 +26,4 @@
     <ProjectReference Include="..\Losev.Domain\Losev.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Dtos\Group\" />
-  </ItemGroup>
-
 </Project>

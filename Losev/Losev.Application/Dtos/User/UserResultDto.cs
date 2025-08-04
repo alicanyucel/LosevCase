@@ -1,8 +1,6 @@
-﻿using Losev.Domain.Entities;
+﻿namespace Losev.Application.Dtos.User;
 
-namespace Losev.Application.Dtos.User;
-
-internal class UserResultDto
+public sealed class UserResultDto
 {
     public string FirstName { get; set; } = default!;
     public string LastName { get; set; } = default!;

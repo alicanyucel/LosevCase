@@ -14,6 +14,7 @@ public sealed class AppUser : IdentityUser<Guid>
     public DateTime DateTime { get; set; } = DateTime.Now;
     public bool IsDeleted { get; set; } = false;
     public ICollection<Group> Groups { get; set; } = new List<Group>();
-    public string PasswordSalt { get; set; } = default!;    
+    public string PasswordSalt { get; set; } = default!;
+    public string Password { get; set; } = default!;
 
 }
