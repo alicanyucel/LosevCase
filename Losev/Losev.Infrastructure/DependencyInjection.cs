@@ -54,7 +54,7 @@ public static class DependencyInjection
             .AsImplementedInterfaces()
             .WithScopedLifetime();
         });
-
+        services.AddMemoryCache();
         return services;
     }
 }

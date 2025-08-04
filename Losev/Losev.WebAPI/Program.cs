@@ -3,9 +3,11 @@ using Losev.Application;
 using Losev.Infrastructure;
 using Losev.WebAPI.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
+using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("SqlServer")
@@ -66,6 +68,18 @@ builder.Services.AddSwaggerGen(setup =>
                 });
 });
 
+builder.Services.AddRateLimiter(x =>
+x.AddFixedWindowLimiter("fixed", cfg =>
+{
+    cfg.QueueLimit = 100;
+    cfg.Window = TimeSpan.FromSeconds(1);
+    cfg.PermitLimit = 100;
+    cfg.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+}));
+
+builder.Services.AddHealthChecks()
+    .AddCheck<DatabaseHealthCheck>("Database");
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -75,13 +89,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseCors();
-
 app.UseExceptionHandler();
-
 app.MapControllers();
-
 ExtensionsMiddleware.CreateFirstUser(app);
-
+app.MapHealthChecks("/health");
 app.Run();

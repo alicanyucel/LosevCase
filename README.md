@@ -51,6 +51,7 @@ Testleri çalýþtýrmak için:dotnet test
 - JWT Authentication
 - Docker
 - xUnit, Moq (Test)
+- Rate Limiting
 
 ## Katký
 Pull request gönderebilirsiniz. Büyük deðiþiklikler için önce bir issue açarak tartýþma baþlatmanýz önerilir.
