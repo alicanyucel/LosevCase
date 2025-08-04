@@ -13,6 +13,7 @@ Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain
 - Health Check ile veritabaný ve servis saðlýðý izleme
 - Rate Limiting ile API istek sýnýrlandýrma
 - MemoryCache ile bellek içi hýzlý veri saklama
+- **XUnit ve Moq ile birim testler**
 
 ## Kurulum
 
