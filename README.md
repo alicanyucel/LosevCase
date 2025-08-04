@@ -10,6 +10,9 @@ Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain
 - Baþlangýçta otomatik admin kullanýcý oluþturma
 - CORS desteði
 - Docker ile container olarak çalýþtýrma
+- Health Check ile veritabaný ve servis saðlýðý izleme
+- Rate Limiting ile API istek sýnýrlandýrma
+- MemoryCache ile bellek içi hýzlý veri saklama
 
 ## Kurulum
 
@@ -51,7 +54,9 @@ Testleri çalýþtýrmak için:dotnet test
 - JWT Authentication
 - Docker
 - xUnit, Moq (Test)
-- Rate Limiting
+- **Health Check**
+- **Rate Limiting**
+- **MemoryCache**
 
 ## Katký
 Pull request gönderebilirsiniz. Büyük deðiþiklikler için önce bir issue açarak tartýþma baþlatmanýz önerilir.
