@@ -4,13 +4,37 @@ using Losev.Infrastructure;
 using Losev.WebAPI.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using Serilog.Sinks.MSSqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("SqlServer")
+                       ?? "Data Source=DESKTOP-L6NJT48\\SQLEXPRESS;Initial Catalog=LosevDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
+var columnOptions = new ColumnOptions();
+columnOptions.Store.Remove(StandardColumn.Properties);
+columnOptions.Store.Add(StandardColumn.LogEvent);
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .Enrich.FromLogContext()
+    .WriteTo.Console(
+        outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
+    .WriteTo.MSSqlServer(
+        connectionString: connectionString,
+        sinkOptions: new MSSqlServerSinkOptions
+        {
+            TableName = "Logs",
+            AutoCreateSqlTable = true
+        },
+        columnOptions: columnOptions
+    )
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 builder.Services.AddDefaultCors();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
-
 builder.Services.AddExceptionHandler<ExceptionHandler>();
 builder.Services.AddProblemDetails();
 

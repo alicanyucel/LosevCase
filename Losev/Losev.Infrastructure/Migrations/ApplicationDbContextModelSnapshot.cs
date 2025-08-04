@@ -115,8 +115,9 @@ namespace Losev.Infrastructure.Migrations
                     b.Property<Guid>("AppUserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("GroupType")
-                        .HasColumnType("int");
+                    b.Property<string>("GroupType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");

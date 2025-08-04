@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Losev.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250803232615_mg33444545787844545")]
-    partial class mg33444545787844545
+    [Migration("20250804090838_mg33444901902123434233")]
+    partial class mg33444901902123434233
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -118,8 +118,9 @@ namespace Losev.Infrastructure.Migrations
                     b.Property<Guid>("AppUserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("GroupType")
-                        .HasColumnType("int");
+                    b.Property<string>("GroupType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");

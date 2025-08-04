@@ -17,8 +17,10 @@ public static class ExtensionsMiddleware
                 {
                     UserName = "admin",
                     Email = "admin@admin.com",
+                    IpAddress="192.168.1.2",
                     FirstName = "Ali Can",
                     LastName = "Yücel",
+                    PasswordSalt="alicandan",
                     EmailConfirmed = true
                 };
 
