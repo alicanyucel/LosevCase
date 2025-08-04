@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-public sealed class AppRole : IdentityRole<Guid>
+public class AppRole : IdentityRole<Guid>
 {
     
     public required ICollection<AppUserRole> UserRoles { get; set; }

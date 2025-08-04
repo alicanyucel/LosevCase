@@ -1,6 +1,8 @@
 using DefaultCorsPolicyNugetPackage;
 using Losev.Application;
+using Losev.Domain.Entities;
 using Losev.Infrastructure;
+using Losev.Infrastructure.Context;
 using Losev.WebAPI.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.RateLimiting;
@@ -79,6 +81,9 @@ x.AddFixedWindowLimiter("fixed", cfg =>
 
 builder.Services.AddHealthChecks()
     .AddCheck<DatabaseHealthCheck>("Database");
+
+builder.Services.AddIdentity<AppUser, AppRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
 
