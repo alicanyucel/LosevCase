@@ -3,6 +3,8 @@
 Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain, Infrastructure, WebAPI ve Test projelerinden oluþur. Proje; Entity Framework Core, MediatR, FluentValidation, AutoMapper ve JWT kimlik doðrulama kullanýr.
 
 ## Özellikler
+- C# 13 dil özellikleri
+- .NET Core 9.0 Web API
 - Katmanlý ve modüler mimari
 - SOLID prensipleri ve OOP
 - Clean Architecture ve Clean Code
