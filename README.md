@@ -4,6 +4,14 @@ Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain
 
 ## Özellikler
 - Katmanlý ve modüler mimari
+- SOLID prensipleri ve OOP
+- Clean Architecture ve Clean Code
+- AOP (Aspect Oriented Programming)
+- MediatR ile CQRS ve handler yapýsý
+- Generic Repository pattern
+- Scrutor ile otomatik servis kaydý
+- Result Pattern ile standart sonuç yönetimi
+- Roller ve rol tabanlý yetkilendirme
 - JWT ile kimlik doðrulama
 - Swagger UI ile API dokümantasyonu
 - Entity Framework Core ve SQL Server
