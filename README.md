@@ -29,15 +29,17 @@ Losev, katmanlý mimariye sahip .NET 9 Web API uygulamasýdýr. Application, Domain
 24. **SQL Backup dosyasý ile veri yedekleme**
 25. **Code First yaklaþýmý ile veritabaný yönetimi**
 26. **Ayrýntýlý README markdown dosyasý ile proje dokümantasyonu**
-27. JWT ile kimlik doðrulama
-28. Swagger UI ile API dokümantasyonu
-29. Entity Framework Core ve SQL Server
-30. CORS desteði
-31. Docker ile container olarak çalýþtýrma
-32. Health Check ile veritabaný ve servis saðlýðý izleme
-33. Rate Limiting ile API istek sýnýrlandýrma
-34. MemoryCache ile bellek içi hýzlý veri saklama
-35. **XUnit ve Moq ile birim testler**
+27. **EF Core ile geliþmiþ veri eriþimi**
+28. JWT ile kimlik doðrulama
+29. Swagger UI ile API dokümantasyonu
+30. Entity Framework Core ve SQL Server
+31. CORS desteði
+32. Docker ile container olarak çalýþtýrma
+33. Health Check ile veritabaný ve servis saðlýðý izleme
+34. Rate Limiting ile API istek sýnýrlandýrma
+35. MemoryCache ile bellek içi hýzlý veri saklama
+36. **XUnit ve Moq ile birim testler**
+37. **527 repoya sahip yazýlým geliþtirici: [alicanyucel.com.tr](https://alicanyucel.com.tr/)**
 
 ## Kurulum
 
