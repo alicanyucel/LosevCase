@@ -3,10 +3,6 @@ using Losev.Application.Services;
 using Losev.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Moq;
-using Xunit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 public class LoginCommandHandlerTests
 {
