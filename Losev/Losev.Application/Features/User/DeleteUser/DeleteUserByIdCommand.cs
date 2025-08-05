@@ -1,5 +1,6 @@
-﻿namespace Losev.Application.Features.User.DeleteUser;
+﻿using MediatR;
+using TS.Result;
 
-internal class DeleteUserByIdCommand
-{
-}
+namespace Losev.Application.Features.User.DeleteUser;
+
+public record DeleteUserByIdCommand(Guid UserId) : IRequest<Result<string>>;

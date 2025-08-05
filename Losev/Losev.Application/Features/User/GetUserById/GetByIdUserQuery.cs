@@ -1,5 +1,6 @@
-﻿namespace Losev.Application.Features.User.GetUserById;
+﻿using Losev.Domain.Entities;
+using MediatR;
+using TS.Result;
 
-internal class GetByIdUserQuery
-{
-}
+namespace Losev.Application.Features.User.GetUserById;
+public record GetUserByIdQuery(Guid UserId) : IRequest<Result<AppUser>>;
