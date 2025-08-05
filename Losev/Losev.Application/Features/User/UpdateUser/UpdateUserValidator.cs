@@ -26,14 +26,10 @@ public class UpdateUserValidator : AbstractValidator<AppUser>
             .NotEmpty().WithMessage("İp adresi gereklidir.")
             .MaximumLength(45); 
 
-        RuleFor(x => x.PasswordSalt)
-            .MaximumLength(255).When(x => !string.IsNullOrWhiteSpace(x.PasswordSalt));
+        RuleFor(x => x.Password)
+            .MaximumLength(255).When(x => !string.IsNullOrWhiteSpace(x.Password));
 
-        When(x => x.RefreshToken != null, () =>
-        {
-            RuleFor(x => x.RefreshTokenExpires)
-                .NotNull().WithMessage("Token varsa yeni token geçerlilik süresi de olmaldır.")
-                .GreaterThan(DateTime.UtcNow).WithMessage("Yeni token ileri bir tarih olmalıdır.");
-        });
+        RuleFor(x=>x.Password).NotEmpty().WithMessage("Password Gerekli").MaximumLength(60);
+
     }
 }

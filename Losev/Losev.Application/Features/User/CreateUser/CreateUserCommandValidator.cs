@@ -23,14 +23,8 @@ public class CreateUserCommandValidator : AbstractValidator<AppUser>
             .NotEmpty().WithMessage("ip adresi gerekli")
             .MaximumLength(45); 
 
-        RuleFor(x => x.PasswordSalt)
-            .NotEmpty().WithMessage("Salt parola gereklli ");
+        RuleFor(x => x.Password)
+            .NotEmpty().WithMessage("Parola gereklli ");
 
-        When(x => x.RefreshToken != null, () =>
-        {
-            RuleFor(x => x.RefreshTokenExpires)
-                .NotNull().WithMessage("Token yenilenme geçerlilik süresi gereklidir.")
-                .GreaterThan(DateTime.Now).WithMessage("Yeni token ileri bir tarih olmalıdır.");
-        });
     }
 }

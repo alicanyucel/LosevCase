@@ -28,13 +28,11 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Resul
         {
             FirstName = request.FirstName,
             LastName = request.LastName,
-            RefreshToken = request.RefreshToken,
-            RefreshTokenExpires = request.RefreshTokenExpires,
             IpAddress = request.IpAddress,
             StatusSuccess = request.StatusSuccess,
             DateTime = request.DateTime,
             IsDeleted = request.IsDeleted,
-            PasswordSalt = request.PasswordSalt 
+            Password = request.Password
         };
 
     

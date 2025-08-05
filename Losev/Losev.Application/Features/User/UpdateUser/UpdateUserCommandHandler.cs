@@ -35,14 +35,10 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Resul
 
         user.FirstName = request.FirstName;
         user.LastName = request.LastName;
-        user.RefreshToken = request.RefreshToken;
-        user.RefreshTokenExpires = request.RefreshTokenExpires;
         user.IpAddress = request.IpAddress;
         user.StatusSuccess = request.StatusSuccess;
         user.DateTime = request.DateTime;
         user.IsDeleted = request.IsDeleted;
-        user.PasswordSalt = request.PasswordSalt;
-
         user.Password = _passwordHasher.HashPassword(user, request.Password);
 
         if (request.GroupIds is not null)
