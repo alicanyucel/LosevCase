@@ -1,9 +1,11 @@
 ﻿using Losev.Application.Features.Auth.Login;
 using Losev.WebAPI.Abstractions;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory; 
+using Microsoft.Extensions.Caching.Memory;
 
+[AllowAnonymous]
 public sealed class AuthController : ApiController
 {
     private readonly IMemoryCache _cache;

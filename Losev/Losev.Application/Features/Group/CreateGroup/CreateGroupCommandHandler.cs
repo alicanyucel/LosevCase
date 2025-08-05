@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Losev.Application.Features.Group.CreateGroup
+﻿namespace Losev.Application.Features.Group.CreateGroup
 {
     internal class CreateGroupCommandHandler
     {
