@@ -6,7 +6,7 @@ using TS.Result;
 namespace Losev.Application.Features.User.DeleteUser;
 
 
-public class DeleteUserCommandHandler : IRequestHandler<DeleteUserByIdCommand, Result<string>>
+public class DeleteUserCommandHandler : IRequestHandler<DeleteGroupByIdCommand, Result<string>>
 {
     private readonly IUserRepository _userRepository;
 
@@ -15,7 +15,7 @@ public class DeleteUserCommandHandler : IRequestHandler<DeleteUserByIdCommand, R
         _userRepository = userRepository;
     }
 
-    public async Task<Result<string>> Handle(DeleteUserByIdCommand request, CancellationToken cancellationToken)
+    public async Task<Result<string>> Handle(DeleteGroupByIdCommand request, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetByIdAsync(request.UserId);
         if (user == null || user.IsDeleted)

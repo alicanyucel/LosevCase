@@ -45,7 +45,7 @@ public class UsersController : ApiController
         return StatusCode(response.StatusCode, response);
     }
     [HttpDelete]
-    public async Task<IActionResult> DeleteUserById(DeleteUserByIdCommand request, CancellationToken cancellationToken)
+    public async Task<IActionResult> DeleteUserById(DeleteGroupByIdCommand request, CancellationToken cancellationToken)
     {
         var response = await _mediator.Send(request, cancellationToken);
         return StatusCode(response.StatusCode, response);

@@ -25,7 +25,7 @@ public class UserDeleteByIdCommandHandlerTests
             .ReturnsAsync(1);
 
         var handler = new DeleteUserCommandHandler(userRepositoryMock.Object);
-        var command = new DeleteUserByIdCommand(userId);
+        var command = new DeleteGroupByIdCommand(userId);
 
         var result = await handler.Handle(command, CancellationToken.None);
 
@@ -44,7 +44,7 @@ public class UserDeleteByIdCommandHandlerTests
             .ReturnsAsync((AppUser)null);
 
         var handler = new DeleteUserCommandHandler(userRepositoryMock.Object);
-        var command = new DeleteUserByIdCommand(userId);
+        var command = new DeleteGroupByIdCommand(userId);
 
         var result = await handler.Handle(command, CancellationToken.None);
 
@@ -65,7 +65,7 @@ public class UserDeleteByIdCommandHandlerTests
             .ReturnsAsync(user);
 
         var handler = new DeleteUserCommandHandler(userRepositoryMock.Object);
-        var command = new DeleteUserByIdCommand(userId);
+        var command = new DeleteGroupByIdCommand(userId);
 
         var result = await handler.Handle(command, CancellationToken.None);
 
@@ -90,7 +90,7 @@ public class UserDeleteByIdCommandHandlerTests
             .ReturnsAsync(0);
 
         var handler = new DeleteUserCommandHandler(userRepositoryMock.Object);
-        var command = new DeleteUserByIdCommand(userId);
+        var command = new DeleteGroupByIdCommand(userId);
 
         var result = await handler.Handle(command, CancellationToken.None);
 

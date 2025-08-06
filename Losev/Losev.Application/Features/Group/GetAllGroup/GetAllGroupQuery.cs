@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Losev.Application.Dtos.Group;
+using MediatR;
+using TS.Result;
 
-namespace Losev.Application.Features.Group.GetAllGroup
-{
-    internal class GetAllGroupQuery
-    {
-    }
-}
+namespace Losev.Application.Features.Group.GetAllGroup;
+
+public sealed record GetAllGroupsQuery : IRequest<Result<List<GroupDto>>>;
+
