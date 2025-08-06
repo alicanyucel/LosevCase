@@ -37,15 +37,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Resul
 
     
         user.Password = _passwordHasher.HashPassword(user, request.Password);
-        if (request.GroupIds != null && request.GroupIds.Any())
-        {
-            var groups = await _groupRepository.GetAll()
-                .Where(g => request.GroupIds.Contains(g.Id))
-                .ToListAsync(cancellationToken);
-
-            user.Groups = groups;
-        }
-
+       
         _userRepository.Add(user);
 
         var saveResult = await _unitofwork.SaveChangesAsync(cancellationToken);
