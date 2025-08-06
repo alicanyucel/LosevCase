@@ -41,11 +41,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Resul
         user.IsDeleted = request.IsDeleted;
         user.Password = _passwordHasher.HashPassword(user, request.Password);
 
-        if (request.GroupIds is not null)
-        {
-            var groups = await _groupRepository.Where(g => request.GroupIds.Contains(g.Id)).ToListAsync(cancellationToken);
-            user.Groups = groups;
-        }
+       
 
         _userRepository.Update(user);
 
